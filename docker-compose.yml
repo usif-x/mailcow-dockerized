@@ -423,7 +423,7 @@ services:
       dns:
         - ${IPV4_NETWORK:-172.22.1}.254
       environment:
-        - HTTPS_PORT=${HTTPS_PORT:-443}
+        - HTTPS_PORT=${HTTPS_PORT:-8443}
         - HTTP_PORT=${HTTP_PORT:-8080}
         - MAILCOW_HOSTNAME=${MAILCOW_HOSTNAME}
         - ADDITIONAL_SERVER_NAMES=${ADDITIONAL_SERVER_NAMES:-}
@@ -451,7 +451,7 @@ services:
         - ./data/web/inc/sessions.inc.php:/mailcowauth/sessions.inc.php:z
         - sogo-web-vol-1:/usr/lib/GNUstep/SOGo/
       ports:
-        - "${HTTPS_BIND:-}:${HTTPS_PORT:-443}:${HTTPS_PORT:-443}"
+        - "${HTTPS_BIND:-}:${HTTPS_PORT:-8443}:${HTTPS_PORT:-8443}"
         - "${HTTP_BIND:-}:${HTTP_PORT:-8080}:${HTTP_PORT:-8080}"
       restart: always
       networks:
@@ -566,7 +566,7 @@ services:
         - SKIP_OLEFY=${SKIP_OLEFY:-n}
         - SKIP_LETS_ENCRYPT=${SKIP_LETS_ENCRYPT:-n}
         - SKIP_SOGO=${SKIP_SOGO:-n}
-        - HTTPS_PORT=${HTTPS_PORT:-443}
+        - HTTPS_PORT=${HTTPS_PORT:-8443}
         - REDIS_SLAVEOF_IP=${REDIS_SLAVEOF_IP:-}
         - REDIS_SLAVEOF_PORT=${REDIS_SLAVEOF_PORT:-}
         - REDISPASS=${REDISPASS}
